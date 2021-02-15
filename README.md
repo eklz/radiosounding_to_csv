@@ -6,3 +6,17 @@ It works by scrapping the data available on the website of the Wyoming Universit
 
 ## Get a list of available station : 
 
+The code *get_uwyo_station_list.py* is a slightly modify version of the mercury code : https://github.com/vlouf/mercury; It prints the list of available station sorted by continents : 
+```
+South America:
+
+                Station id - Station name
+                78970 - Piarco Int. Airport (TTPP)
+                78988 - Hato Airport, Curacao (TNCC)
+                82332 - Manaus (Aeroporto) (SBMN)
+                83746 - Galeao (SBGL)
+                83827 - Foz Do Iguacu (Aero) (SBFI)
+                83840 - Curitiba (Aeroporto) (SBCT)
+                85586 - Santo Domingo (SCSN)
+                ...........
+```
