@@ -28,6 +28,13 @@ It contains two functions :
 * get_uwyo_sounding(year, month, FROM, TO, stnm, save_csv = False )
 * get_soundings_by_dates(stnm, start,stop, save_csv = False)
 
+
+### Form of the output : 
+
+![alt text](https://github.com/eklz/radiosounding_to_csv/blob/master/output.png)
+
+Details about each column can be found here : http://weather.uwyo.edu/upperair/columns.html and here : http://weather.uwyo.edu/upperair/indices.html
+
 ### get_uwyo_sounding
 The first code returns data for a given month as a pandas DataFrame with an option to save a CSV file:
 ```
@@ -55,12 +62,6 @@ For example to generate a CSV of the data in TENERIFE (60018) form 01/01/2020 to
 ```
 get_soundings_date(60018, '2020010100', '2020123112')
 ```
-
-### Form of the output : 
-
-![alt text](https://github.com/eklz/radiosounding_to_csv/blob/master/output.png)
-
-Details about each column can be found here : http://weather.uwyo.edu/upperair/columns.html and here : http://weather.uwyo.edu/upperair/indices.html
 
 ## Upcomming work : 
 
