@@ -63,7 +63,7 @@ For example to generate a CSV of the data in TENERIFE (60018) form 01/01/2020 to
 get_soundings_date(60018, '2020010100', '2020123112')
 ```
 
-## Upcomming work : 
+## Upcoming work : 
 
 I will be adding an option to save station information and sounding indices corresponding to each sounding. 
 
