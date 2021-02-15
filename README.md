@@ -45,7 +45,7 @@ You can also save a single sounding by setting TO equal to FROM.
 
 ### get_soundings_by_dates
 
-This code is a generalization of the first one and enable itteration on multiple month : 
+This code is a generalization of the first one and *enable itteration on multiple month* : 
 ```
 stnm : int --> station number
 start str --> start date in the form "YYYYMMDDHH" /!\ HH has to be 00 or 12 /!\
@@ -60,4 +60,9 @@ get_soundings_date(60018, '2020010100', '2020123112')
 
 ![alt text](https://github.com/eklz/radiosounding_to_csv/blob/master/output.png)
 
-Details about 
+Details about each column can be found here : http://weather.uwyo.edu/upperair/columns.html and here : http://weather.uwyo.edu/upperair/indices.html
+
+## Upcomming work : 
+
+I will be adding an option to save station information and sounding indices corresponding to each sounding. 
+
