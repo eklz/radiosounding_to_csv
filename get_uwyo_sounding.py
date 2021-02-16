@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import calendar
 import re
+from tqdm import tqdm
 
 
 
@@ -43,7 +44,7 @@ def get_uwyo_sounding(year, month, FROM, TO, stnm, save_csv = False ):
     
     result.set_index(['DATE','HGHT(m)'],  inplace = True) #DataFrame with multi index level1 date and level2 alt(m)
     if save_csv:
-        result.to_csv('{stnm}_{year}{month:02d}_{FROM:04d}_{TO:04d}.csv')
+        result.to_csv(f'{stnm}_{year}{month:02d}_{FROM:04d}_{TO:04d}.csv')
 
     return result
 
@@ -63,23 +64,23 @@ def get_soundings_by_dates(stnm, start,stop, save_csv = False):
     tot_m = total_months(stop)-total_months(start)+1 # number of months to itterate on 
 
     result = pd.DataFrame()
+    start_tmp = start
+    for i in tqdm(range(tot_m)):
 
-    for i in range(tot_m):
-
-        FROM = start
-        _, day_max=calendar.monthrange(start.year, start.month)
-        TO = datetime(start.year, start.month, day_max, 12)
+        FROM = start_tmp
+        _, day_max=calendar.monthrange(start_tmp.year, start_tmp.month)
+        TO = datetime(start_tmp.year, start_tmp.month, day_max, 12)
 
         if TO>=stop: 
             TO = stop
 
-        start = TO + timedelta(days=1) # change start value for next month
+        start_tmp = TO + timedelta(days=1) # change start value for next month
     
         df = get_uwyo_sounding(FROM.year, FROM.month, int(f'{FROM.day}{FROM.hour:02d}'), int(f'{TO.day}{TO.hour:02d}'), stnm, save_csv = False )
         result = pd.concat([result,df])
 
     if save_csv:
-        result.to_csv('{stnm}__{start}_{stop}.csv')
+        result.to_csv(f'{stnm}__{start}_{stop}.csv')
     return result
 
    
